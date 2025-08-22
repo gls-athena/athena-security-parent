@@ -24,7 +24,6 @@
     <modules>
         <module>athena-security-bom</module>
         <module>athena-security-project</module>
-        <module>athena-security-samples</module>
     </modules>
 
 </project>
