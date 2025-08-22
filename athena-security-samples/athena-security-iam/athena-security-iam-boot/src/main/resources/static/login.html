@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>登录页面</title>
+    <link href="css/login.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- 登录页面主容器，包含左侧介绍和右侧登录表单 -->
+<div class="login-container">
+    <!-- 左侧介绍部分 -->
+    <div class="intro-section">
+        <div class="intro-content">
+            <h1>欢迎使用</h1>
+            <p class="intro-description">安全、高效、易用的管理系统</p>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <i class="feature-icon">🔒</i>
+                    <div class="feature-text">
+                        <h3>安全可靠</h3>
+                        <p>采用先进加密技术，保护数据安全</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="feature-icon">⚡</i>
+                    <div class="feature-text">
+                        <h3>高效便捷</h3>
+                        <p>简化操作流程，提高工作效率</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 右侧登录部分 -->
+    <div class="login-section">
+        <div class="login-box">
+            <header class="login-header">
+                <h1>登录</h1>
+                <p class="subtitle">欢迎回来</p>
+            </header>
+
+            <!-- 登录方式切换标签页 -->
+            <nav class="tab-container">
+                <button class="tab-button active" onclick="showTab('username-login')">
+                    <i class="icon-user"></i>账号登录
+                </button>
+                <button class="tab-button" onclick="showTab('mobile-login')">
+                    <i class="icon-mobile"></i>手机登录
+                </button>
+            </nav>
+
+            <!-- 用户名密码登录表单 -->
+            <section class="tab-content active" id="username-login">
+                <form class="login-form" id="username-login-form">
+                    <div class="form-group">
+                        <input id="username" name="username" placeholder="请输入用户名" required type="text"/>
+                    </div>
+
+                    <div class="form-group">
+                        <input id="password" name="password" placeholder="请输入密码" required type="password"/>
+                    </div>
+
+                    <div class="form-group captcha-group">
+                        <input id="imageCaptcha" name="imageCaptcha" placeholder="请输入验证码" required type="text"/>
+                        <img alt="验证码" class="captcha-image" id="captchaImage"
+                             onclick="loadCaptcha()"
+                             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/>
+                    </div>
+
+                    <input id="uuid" name="uuid" type="hidden">
+                    <button class="login-button" onclick="login('username-login-form')" type="button">登录</button>
+                </form>
+            </section>
+
+            <!-- 手机号验证码登录表单 -->
+            <section class="tab-content" id="mobile-login">
+                <form class="login-form" id="mobile-login-form">
+                    <div class="form-group">
+                        <input id="mobile" name="mobile" placeholder="请输入手机号" required type="text"/>
+                    </div>
+
+                    <div class="form-group captcha-group">
+                        <input id="smsCaptcha" name="smsCaptcha" placeholder="请输入验证码" required type="text"/>
+                        <button class="sms-button" onclick="sendSmsCode()" type="button">获取验证码</button>
+                    </div>
+
+                    <button class="login-button" onclick="login('mobile-login-form')" type="button">登录</button>
+                </form>
+            </section>
+
+            <!-- 第三方登录分隔线 -->
+            <div class="divider">
+                <span>其他登录方式</span>
+            </div>
+
+            <!-- 第三方登录入口 -->
+            <div class="oauth-login">
+                <a class="social-login" href="/oauth2/authorization/google_oauth2" title="使用Google账号登录">
+                    <img alt="Google" src="images/google.svg"/>
+                </a>
+                <a class="social-login" href="/oauth2/authorization/github_oauth2" title="使用Github账号登录">
+                    <img alt="Github" src="images/github.svg"/>
+                </a>
+                <a class="social-login" href="/oauth2/authorization/feishu_oauth2" title="使用飞书账号登录">
+                    <img alt="飞书" src="images/feishu.svg"/>
+                </a>
+                <a class="social-login" href="/oauth2/authorization/wechat_open_oauth2" title="使用微信账号登录">
+                    <img alt="微信" src="images/wechat.svg"/>
+                </a>
+                <a class="social-login" href="/oauth2/authorization/wechat_mini_oauth2?code=1234567"
+                   title="使用微信小程序登录">
+                    <img alt="微信小程序" src="images/wechat.svg"/>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/login.js"></script>
+</body>
+</html>

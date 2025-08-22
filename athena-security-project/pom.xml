@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.github.gls-athena.security</groupId>
+        <artifactId>athena-security-parent</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>athena-security-project</artifactId>
+    <packaging>pom</packaging>
+    <name>Athena Security Project</name>
+    <description>授权认证服务项目，包含安全相关的核心模块和依赖管理。</description>
+    <modules>
+        <module>athena-security-common</module>
+        <module>athena-security-captcha</module>
+        <module>athena-security-rest</module>
+        <module>athena-security-web</module>
+        <module>athena-security-oauth2-client</module>
+        <module>athena-security-oauth2-authorization-server</module>
+        <module>athena-security-oauth2-resource-server</module>
+        <module>athena-security-oauth2-client-feishu</module>
+        <module>athena-security-oauth2-client-wechat</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.gls-athena.common.core</groupId>
+            <artifactId>athena-common-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.gls-athena.starter.web</groupId>
+            <artifactId>athena-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.gls-athena.starter.data.redis</groupId>
+            <artifactId>athena-starter-data-redis</artifactId>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.github.gls-athena.security</groupId>
+                <artifactId>athena-security-bom</artifactId>
+                <version>${revision}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

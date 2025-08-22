@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.github.gls-athena.security</groupId>
+        <artifactId>athena-security-project</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <groupId>io.github.gls-athena.security.oauth2.client</groupId>
+    <artifactId>athena-security-oauth2-client</artifactId>
+    <name>Athena Security OAuth2 Client</name>
+    <description>授权认证服务 OAuth2 客户端模块，提供 OAuth2 客户端功能。</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.gls-athena.security.common</groupId>
+            <artifactId>athena-security-common</artifactId>
+        </dependency>
+    </dependencies>
+</project>

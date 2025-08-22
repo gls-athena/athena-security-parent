@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.github.gls-athena.security</groupId>
+        <artifactId>athena-security-project</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <groupId>io.github.gls-athena.security.web</groupId>
+    <artifactId>athena-security-web</artifactId>
+    <name>Athena Security Web</name>
+    <description>授权认证服务 Web 模块，提供 Web 端的安全功能和配置。</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.github.gls-athena.security.common</groupId>
+            <artifactId>athena-security-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.gls-athena.security.rest</groupId>
+            <artifactId>athena-security-rest</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.gls-athena.security.captcha</groupId>
+            <artifactId>athena-security-captcha</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.gls-athena.security.oauth2.client</groupId>
+            <artifactId>athena-security-oauth2-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.gls-athena.security.oauth2.client.feishu</groupId>
+            <artifactId>athena-security-oauth2-client-feishu</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.gls-athena.security.oauth2.client.wechat</groupId>
+            <artifactId>athena-security-oauth2-client-wechat</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

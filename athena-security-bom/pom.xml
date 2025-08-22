@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.github.gls-athena.security</groupId>
+        <artifactId>athena-security-parent</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>athena-security-bom</artifactId>
+    <packaging>pom</packaging>
+    <name>Athena Security BOM</name>
+    <description>授权认证服务 BOM 项目，包含安全相关的核心模块和依赖管理。</description>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.github.gls-athena.security.captcha</groupId>
+                <artifactId>athena-security-captcha</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.gls-athena.security.common</groupId>
+                <artifactId>athena-security-common</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.gls-athena.security.oauth2.authorization.server</groupId>
+                <artifactId>athena-security-oauth2-authorization-server</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.gls-athena.security.oauth2.client</groupId>
+                <artifactId>athena-security-oauth2-client</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.gls-athena.security.oauth2.client.feishu</groupId>
+                <artifactId>athena-security-oauth2-client-feishu</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.gls-athena.security.oauth2.client.wechat</groupId>
+                <artifactId>athena-security-oauth2-client-wechat</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.gls-athena.security.oauth2.resource.server</groupId>
+                <artifactId>athena-security-oauth2-resource-server</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.gls-athena.security.rest</groupId>
+                <artifactId>athena-security-rest</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.gls-athena.security.web</groupId>
+                <artifactId>athena-security-web</artifactId>
+                <version>${revision}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>

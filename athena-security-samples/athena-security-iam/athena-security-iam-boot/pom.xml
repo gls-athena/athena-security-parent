@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.github.gls-athena.security.iam</groupId>
+        <artifactId>athena-security-iam</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <groupId>io.github.gls-athena.security.iam.boot</groupId>
+    <artifactId>athena-security-iam-boot</artifactId>
+    <name>Athena Security IAM Boot</name>
+    <description>Athena Security IAM Boot Module, providing the bootstrapping for the IAM service.</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.github.gls-athena.security.iam.sdk</groupId>
+            <artifactId>athena-security-iam-sdk</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.gls-athena.cloud.boot</groupId>
+            <artifactId>athena-cloud-boot</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.gls-athena.security.oauth2.authorization.server</groupId>
+            <artifactId>athena-security-oauth2-authorization-server</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
