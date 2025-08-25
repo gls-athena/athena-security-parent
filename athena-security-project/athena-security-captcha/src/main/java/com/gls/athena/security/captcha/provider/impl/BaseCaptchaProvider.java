@@ -8,6 +8,7 @@ import com.gls.athena.security.captcha.domain.Captcha;
 import com.gls.athena.security.captcha.filter.CaptchaException;
 import com.gls.athena.security.captcha.provider.CaptchaProvider;
 import com.gls.athena.security.captcha.repository.CaptchaRepository;
+import com.gls.athena.security.captcha.support.CaptchaUtil;
 import com.gls.athena.starter.web.util.WebUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -176,12 +177,7 @@ public abstract class BaseCaptchaProvider<C extends Captcha> implements CaptchaP
         // 从验证码仓库中获取对应的验证码对象
         Captcha captcha = repository.getCaptcha(key);
         // 如果验证码对象为空，说明验证码不存在或已过期，抛出异常
-        if (captcha == null) {
-            throw new CaptchaException("验证码不存在或已过期");
-        }
-
-        // 验证用户输入的验证码与系统生成的验证码是否匹配，如果不匹配，则抛出异常
-        if (!isValidCaptcha(captcha, captchaCode)) {
+        if (CaptchaUtil.validateCaptcha(captcha, captchaCode)) {
             throw new CaptchaException("验证码错误");
         }
 
@@ -195,18 +191,4 @@ public abstract class BaseCaptchaProvider<C extends Captcha> implements CaptchaP
      * @return 验证码代码参数的键名
      */
     protected abstract String getCaptchaCodeParam();
-
-    /**
-     * 验证验证码是否有效
-     *
-     * @param captcha     验证码对象
-     * @param captchaCode 用户输入的验证码代码
-     * @return 如果验证码有效返回true，否则返回false
-     */
-    private boolean isValidCaptcha(Captcha captcha, String captchaCode) {
-        // 检查用户输入的验证码代码是否与生成的验证码代码匹配
-        // 检查验证码的过期时间是否晚于当前时间，以确保验证码尚未过期
-        return captcha.getCode().equals(captchaCode)
-                && captcha.getExpireTime().getTime() > System.currentTimeMillis();
-    }
 }

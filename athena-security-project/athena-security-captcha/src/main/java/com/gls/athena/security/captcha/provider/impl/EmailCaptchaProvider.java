@@ -98,7 +98,7 @@ public class EmailCaptchaProvider extends BaseCaptchaProvider<Captcha> {
      */
     @Override
     protected Captcha generateCaptcha() {
-        return CaptchaUtil.generateCaptcha(properties.getCaptchaLength(), properties.getCaptchaExpire());
+        return CaptchaUtil.generateCaptcha(properties.getCaptchaLength(), properties.getCaptchaExpire(), CaptchaUtil.CaptchaType.MIXED);
     }
 
     /**

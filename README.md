@@ -22,23 +22,27 @@ Athena Security 是一个基于 Spring Security 6.x 和 Spring Boot 3.x 的企�
 ## ✨ 功能特性
 
 ### 🔐 核心安全功能
+
 - **OAuth2 完整支持** - 实现授权服务器、资源服务器和客户端
 - **多样化认证方式** - 支持用户名密码、手机号、邮箱等多种认证方式
 - **会话管理** - 灵活的会话管理策略，支持单点登录和会话共享
 - **权限控制** - 基于角色和资源的细粒度权限控制
 
 ### 🌐 第三方集成
+
 - **微信登录** - 支持微信公众号、小程序、开放平台登录
 - **飞书登录** - 支持飞书企业应用登录集成
 - **扩展支持** - 易于扩展其他第三方平台登录
 
 ### 🛡️ 安全防护
+
 - **验证码保护** - 内置图形验证码、短信验证码功能
 - **防暴力破解** - 登录失败锁定、频率限制
 - **安全审计** - 完整的安全日志和审计功能
 - **CSRF 防护** - 跨站请求伪造防护
 
 ### 🏗️ 架构设计
+
 - **模块化设计** - 高度模块化，按需集成
 - **RESTful API** - 完整的 REST API 支持
 - **云原生友好** - 支持微服务架构和容器化部署
@@ -317,29 +321,29 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
 ### 认证接口
 
-| 接口 | 方法 | 描述 |
-|------|------|------|
-| `/auth/login` | POST | 用户登录 |
-| `/auth/logout` | POST | 用户登出 |
-| `/auth/refresh` | POST | 刷新Token |
-| `/auth/info` | GET | 获取当前用户信息 |
+| 接口              | 方法   | 描述       |
+|-----------------|------|----------|
+| `/auth/login`   | POST | 用户登录     |
+| `/auth/logout`  | POST | 用户登出     |
+| `/auth/refresh` | POST | 刷新Token  |
+| `/auth/info`    | GET  | 获取当前用户信息 |
 
 ### OAuth2 接口
 
-| 接口 | 方法 | 描述 |
-|------|------|------|
-| `/oauth2/authorize` | GET | 授权端点 |
-| `/oauth2/token` | POST | Token端点 |
-| `/oauth2/revoke` | POST | Token撤销 |
+| 接口                   | 方法   | 描述      |
+|----------------------|------|---------|
+| `/oauth2/authorize`  | GET  | 授权端点    |
+| `/oauth2/token`      | POST | Token端点 |
+| `/oauth2/revoke`     | POST | Token撤销 |
 | `/oauth2/introspect` | POST | Token内省 |
 
 ### 第三方登录接口
 
-| 接口 | 方法 | 描述 |
-|------|------|------|
-| `/oauth2/authorization/wechat` | GET | 微信登录跳转 |
-| `/oauth2/authorization/feishu` | GET | 飞书登录跳转 |
-| `/oauth2/callback/{provider}` | GET | 第三方登录回调 |
+| 接口                             | 方法  | 描述      |
+|--------------------------------|-----|---------|
+| `/oauth2/authorization/wechat` | GET | 微信登录跳转  |
+| `/oauth2/authorization/feishu` | GET | 飞书登录跳转  |
+| `/oauth2/callback/{provider}`  | GET | 第三方登录回调 |
 
 ## 🤝 贡献指南
 
