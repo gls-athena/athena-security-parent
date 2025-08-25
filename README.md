@@ -111,6 +111,7 @@ athena-security-parent/
 在你的项目 `pom.xml` 中添加 BOM 依赖管理：
 
 ```xml
+
 <dependencyManagement>
     <dependencies>
         <dependency>
@@ -129,19 +130,20 @@ athena-security-parent/
 #### 1. 添加核心依赖
 
 ```xml
+
 <dependencies>
     <!-- 基础安全模块 -->
     <dependency>
         <groupId>io.github.gls-athena.security.common</groupId>
         <artifactId>athena-security-common</artifactId>
     </dependency>
-    
+
     <!-- Web安全模块 -->
     <dependency>
         <groupId>io.github.gls-athena.security.web</groupId>
         <artifactId>athena-security-web</artifactId>
     </dependency>
-    
+
     <!-- 验证码模块（可选） -->
     <dependency>
         <groupId>io.github.gls-athena.security.captcha</groupId>
@@ -153,6 +155,7 @@ athena-security-parent/
 #### 2. OAuth2 授权服务器
 
 ```xml
+
 <dependency>
     <groupId>io.github.gls-athena.security.oauth2</groupId>
     <artifactId>athena-security-oauth2-authorization-server</artifactId>
@@ -168,10 +171,10 @@ athena-security-parent/
     <artifactId>athena-security-oauth2-client-wechat</artifactId>
 </dependency>
 
-<!-- 飞书登录 -->
+        <!-- 飞书登录 -->
 <dependency>
-    <groupId>io.github.gls-athena.security.oauth2.client</groupId>
-    <artifactId>athena-security-oauth2-client-feishu</artifactId>
+<groupId>io.github.gls-athena.security.oauth2.client</groupId>
+<artifactId>athena-security-oauth2-client-feishu</artifactId>
 </dependency>
 ```
 
@@ -186,13 +189,13 @@ athena:
       enabled: true
       login-url: /login
       logout-url: /logout
-    
+
     # OAuth2 配置
     oauth2:
       authorization-server:
         enabled: true
         issuer: http://localhost:8080
-      
+
       # 第三方登录配置
       client:
         wechat:
@@ -203,7 +206,7 @@ athena:
           enabled: true
           client-id: ${FEISHU_CLIENT_ID}
           client-secret: ${FEISHU_CLIENT_SECRET}
-    
+
     # 验证码配置
     captcha:
       enabled: true
@@ -216,10 +219,11 @@ athena:
 ### OAuth2 授权服务器配置
 
 ```java
+
 @Configuration
 @EnableAthenaOAuth2AuthorizationServer
 public class OAuth2AuthorizationServerConfig {
-    
+
     @Bean
     public OAuth2ClientDetailsService clientDetailsService() {
         return new InMemoryOAuth2ClientDetailsService();
@@ -230,17 +234,18 @@ public class OAuth2AuthorizationServerConfig {
 ### 第三方登录配置
 
 ```java
+
 @Configuration
 @EnableAthenaOAuth2Client
 public class OAuth2ClientConfig {
-    
+
     @Bean
     public WechatOAuth2ClientConfig wechatConfig() {
         return WechatOAuth2ClientConfig.builder()
-            .clientId("your-wechat-client-id")
-            .clientSecret("your-wechat-client-secret")
-            .redirectUri("http://localhost:8080/oauth2/callback/wechat")
-            .build();
+                .clientId("your-wechat-client-id")
+                .clientSecret("your-wechat-client-secret")
+                .redirectUri("http://localhost:8080/oauth2/callback/wechat")
+                .build();
     }
 }
 ```
@@ -248,20 +253,21 @@ public class OAuth2ClientConfig {
 ### 验证码集成
 
 ```java
+
 @RestController
 public class CaptchaController {
-    
+
     @Autowired
     private CaptchaService captchaService;
-    
+
     @GetMapping("/captcha/image")
     public CaptchaResponse generateImageCaptcha() {
         return captchaService.generateImageCaptcha();
     }
-    
+
     @PostMapping("/captcha/verify")
-    public boolean verifyCaptcha(@RequestParam String code, 
-                               @RequestParam String token) {
+    public boolean verifyCaptcha(@RequestParam String code,
+                                 @RequestParam String token) {
         return captchaService.verify(token, code);
     }
 }
@@ -272,22 +278,23 @@ public class CaptchaController {
 ### 自定义安全配置
 
 ```java
+
 @Configuration
 public class CustomSecurityConfig {
-    
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/public/**").permitAll()
-                .requestMatchers("/api/admin/**").hasRole("ADMIN")
-                .anyRequest().authenticated()
-            )
-            .oauth2Login(oauth2 -> oauth2
-                .loginPage("/login")
-                .defaultSuccessUrl("/dashboard")
-            )
-            .build();
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/public/**").permitAll()
+                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                        .anyRequest().authenticated()
+                )
+                .oauth2Login(oauth2 -> oauth2
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/dashboard")
+                )
+                .build();
     }
 }
 ```
@@ -295,24 +302,25 @@ public class CustomSecurityConfig {
 ### 自定义认证提供者
 
 ```java
+
 @Component
 public class CustomAuthenticationProvider implements AuthenticationProvider {
-    
+
     @Override
-    public Authentication authenticate(Authentication authentication) 
+    public Authentication authenticate(Authentication authentication)
             throws AuthenticationException {
         // 自定义认证逻辑
         return new UsernamePasswordAuthenticationToken(
-            authentication.getPrincipal(),
-            authentication.getCredentials(),
-            Collections.emptyList()
+                authentication.getPrincipal(),
+                authentication.getCredentials(),
+                Collections.emptyList()
         );
     }
-    
+
     @Override
     public boolean supports(Class<?> authenticationType) {
         return UsernamePasswordAuthenticationToken.class
-            .isAssignableFrom(authenticationType);
+                .isAssignableFrom(authenticationType);
     }
 }
 ```
