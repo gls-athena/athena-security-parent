@@ -4,10 +4,10 @@
 
 ![GitHub license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)
 ![Maven Central](https://img.shields.io/maven-central/v/io.github.gls-athena.security/athena-security-parent)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.4-brightgreen)
 ![Spring Security](https://img.shields.io/badge/Spring%20Security-6.x-brightgreen)
 ![OAuth2](https://img.shields.io/badge/OAuth2-2.1-blue)
-![Java](https://img.shields.io/badge/Java-17+-orange)
+![Java](https://img.shields.io/badge/Java-21+-orange)
 
 **企业级安全认证框架，基于 Spring Security 构建的完整认证授权解决方案**
 
