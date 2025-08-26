@@ -5,7 +5,7 @@
 ![GitHub license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)
 ![Maven Central](https://img.shields.io/maven-central/v/io.github.gls-athena.security/athena-security-parent)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.4-brightgreen)
-![Spring Security](https://img.shields.io/badge/Spring%20Security-6.x-brightgreen)
+![Spring Security](https://img.shields.io/badge/Spring%20Security-6.5.2-brightgreen)
 ![OAuth2](https://img.shields.io/badge/OAuth2-2.1-blue)
 ![Java](https://img.shields.io/badge/Java-21+-orange)
 
