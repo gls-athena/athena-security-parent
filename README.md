@@ -17,7 +17,8 @@
 
 ## 📖 项目介绍
 
-Athena Security 是一个基于 Spring Security 6.x 和 Spring Boot 3.x 的企业级安全认证框架，提供了完整的认证授权解决方案。框架支持 OAuth2 协议、第三方平台登录、验证码集成、会话管理等功能，采用模块化设计，开箱即用。
+Athena Security 是一个基于 Spring Security 6.x 和 Spring Boot 3.x 的企业级安全认证框架，提供了完整的认证授权解决方案。框架支持
+OAuth2 协议、第三方平台登录、验证码集成、会话管理等功能，采用模块化设计，开箱即用。
 
 ## ✨ 功能特性
 
