@@ -4,10 +4,10 @@
 
 ![GitHub license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)
 ![Maven Central](https://img.shields.io/maven-central/v/io.github.gls-athena.security/athena-security-parent)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen)
-![Spring Security](https://img.shields.io/badge/Spring%20Security-6.x-brightgreen)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.4-brightgreen)
+![Spring Security](https://img.shields.io/badge/Spring%20Security-6.5.2-brightgreen)
 ![OAuth2](https://img.shields.io/badge/OAuth2-2.1-blue)
-![Java](https://img.shields.io/badge/Java-17+-orange)
+![Java](https://img.shields.io/badge/Java-21+-orange)
 
 **企业级安全认证框架，基于 Spring Security 构建的完整认证授权解决方案**
 
@@ -17,7 +17,8 @@
 
 ## 📖 项目介绍
 
-Athena Security 是一个基于 Spring Security 6.x 和 Spring Boot 3.x 的企业级安全认证框架，提供了完整的认证授权解决方案。框架支持 OAuth2 协议、第三方平台登录、验证码集成、会话管理等功能，采用模块化设计，开箱即用。
+Athena Security 是一个基于 Spring Security 6.x 和 Spring Boot 3.x 的企业级安全认证框架，提供了完整的认证授权解决方案。框架支持
+OAuth2 协议、第三方平台登录、验证码集成、会话管理等功能，采用模块化设计，开箱即用。
 
 ## ✨ 功能特性
 
