@@ -6,7 +6,7 @@
     <parent>
         <groupId>io.github.gls-athena</groupId>
         <artifactId>athena-project</artifactId>
-        <version>0.0.10</version>
+        <version>0.0.11</version>
     </parent>
     <groupId>io.github.gls-athena.security</groupId>
     <artifactId>athena-security-parent</artifactId>
