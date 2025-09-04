@@ -3,6 +3,7 @@ package com.gls.athena.security.oauth2.client.feishu.support;
 import com.gls.athena.security.oauth2.client.feishu.config.Oauth2FeishuProperties;
 import com.gls.athena.security.oauth2.client.feishu.domain.*;
 import com.gls.athena.starter.data.redis.support.RedisUtil;
+import lombok.RequiredArgsConstructor;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.RequestEntity;
 import org.springframework.web.client.RestTemplate;
@@ -16,7 +17,11 @@ import java.util.concurrent.TimeUnit;
  * @param properties 飞书应用访问令牌缓存名称
  * @author george
  */
-public record FeishuClient(Oauth2FeishuProperties properties) {
+@RequiredArgsConstructor
+public class FeishuClient {
+
+    private final Oauth2FeishuProperties properties;
+
     /**
      * 获取应用访问令牌。
      * 首先尝试从Redis缓存中获取，如果缓存中不存在，则调用飞书接口获取并缓存结果。

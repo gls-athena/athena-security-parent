@@ -3,6 +3,7 @@ package com.gls.athena.security.oauth2.client.wechat.work;
 import com.gls.athena.security.oauth2.client.wechat.support.RestTemplateUtil;
 import com.gls.athena.security.oauth2.client.wechat.work.domain.*;
 import com.gls.athena.starter.data.redis.support.RedisUtil;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
@@ -14,7 +15,10 @@ import java.util.concurrent.TimeUnit;
  *
  * @author george
  */
-public record WechatWorkClient(WechatWorkProperties properties) {
+@RequiredArgsConstructor
+public class WechatWorkClient {
+
+    private final WechatWorkProperties properties;
 
     /**
      * 获取企业微信访问令牌

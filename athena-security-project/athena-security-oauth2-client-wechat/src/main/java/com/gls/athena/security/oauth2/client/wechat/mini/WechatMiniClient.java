@@ -6,6 +6,7 @@ import com.gls.athena.security.oauth2.client.wechat.mini.domain.Code2SessionRequ
 import com.gls.athena.security.oauth2.client.wechat.mini.domain.Code2SessionResponse;
 import com.gls.athena.security.oauth2.client.wechat.support.RestTemplateUtil;
 import com.gls.athena.starter.data.redis.support.RedisUtil;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
@@ -17,7 +18,10 @@ import java.util.concurrent.TimeUnit;
  *
  * @author george
  */
-public record WechatMiniClient(WechatMiniProperties properties) {
+@RequiredArgsConstructor
+public class WechatMiniClient {
+
+    private final WechatMiniProperties properties;
 
     /**
      * 获取微信小程序访问令牌
