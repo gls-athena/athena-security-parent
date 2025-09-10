@@ -14,7 +14,7 @@ import org.springframework.security.oauth2.server.authorization.OAuth2Authorizat
  * 使用{@link Oauth2AuthorizationConsentConverter}进行实体与领域模型之间的转换。
  * </p>
  *
- * @author lizy19
+ * @author george
  */
 @RequiredArgsConstructor
 public class RedisOauth2AuthorizationConsentServiceImpl implements OAuth2AuthorizationConsentService {

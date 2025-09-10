@@ -10,7 +10,7 @@ import org.springframework.security.oauth2.server.authorization.OAuth2Authorizat
  * OAuth2授权同意信息转换器接口
  * 用于在Spring Security OAuth2授权同意对象和自定义的授权同意实体之间进行转换
  *
- * @author lizy19
+ * @author george
  */
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING,
         nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)

@@ -11,7 +11,7 @@ import java.util.Set;
  * OAuth2授权信息实体类
  * 用于存储和管理OAuth2授权过程中的各种令牌和相关信息
  *
- * @author lizy19
+ * @author george
  */
 @Data
 public class Oauth2Authorization implements Serializable {
