@@ -5,6 +5,7 @@ import com.gls.athena.security.oauth2.client.wechat.mp.domain.AccessTokenRespons
 import com.gls.athena.security.oauth2.client.wechat.mp.domain.UserInfoRequest;
 import com.gls.athena.security.oauth2.client.wechat.mp.domain.UserInfoResponse;
 import com.gls.athena.security.oauth2.client.wechat.support.RestTemplateUtil;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
@@ -15,7 +16,10 @@ import java.net.URI;
  *
  * @author george
  */
-public record WechatMpClient(WechatMpProperties properties) {
+@RequiredArgsConstructor
+public class WechatMpClient {
+
+    private final WechatMpProperties properties;
 
     /**
      * 获取访问令牌

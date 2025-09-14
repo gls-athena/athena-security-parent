@@ -12,7 +12,7 @@ import java.util.Set;
  * 该类用于存储客户端授权同意的相关信息，包括客户端ID、主体名称和授权权限集合
  * </p>
  *
- * @author lizy19
+ * @author george
  */
 @Data
 public class Oauth2AuthorizationConsent implements Serializable {

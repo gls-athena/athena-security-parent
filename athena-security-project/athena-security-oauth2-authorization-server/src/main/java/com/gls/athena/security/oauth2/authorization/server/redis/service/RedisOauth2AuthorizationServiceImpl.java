@@ -21,7 +21,7 @@ import java.util.List;
  * 使用Redis作为存储后端来管理OAuth2授权信息。
  * </p>
  *
- * @author lizy19
+ * @author george
  */
 @RequiredArgsConstructor
 public class RedisOauth2AuthorizationServiceImpl implements OAuth2AuthorizationService {

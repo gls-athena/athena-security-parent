@@ -16,7 +16,7 @@ import java.util.Map;
  * OAuth2 授权信息转换器接口，用于在 Spring Security 的 OAuth2Authorization 对象与自定义的 Oauth2Authorization 实体之间进行转换。
  * 使用 MapStruct 进行映射配置，忽略空值属性映射。
  *
- * @author lizy19
+ * @author george
  */
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING,
         nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
