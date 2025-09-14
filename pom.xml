@@ -18,7 +18,7 @@
 
     <properties>
         <!-- CI 友好的版本管理 -->
-        <revision>0.0.12-SNAPSHOT</revision>
+        <revision>0.0.12</revision>
     </properties>
 
     <modules>
