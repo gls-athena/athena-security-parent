@@ -3,13 +3,13 @@ package com.gls.athena.security.captcha.provider.impl;
 import cn.hutool.captcha.CaptchaUtil;
 import cn.hutool.captcha.LineCaptcha;
 import cn.hutool.core.date.DateUtil;
+import com.gls.athena.common.core.constant.FileTypeEnums;
 import com.gls.athena.security.captcha.config.CaptchaEnums;
 import com.gls.athena.security.captcha.config.CaptchaProperties;
 import com.gls.athena.security.captcha.config.ImageCaptchaProperties;
 import com.gls.athena.security.captcha.domain.ImageCaptcha;
 import com.gls.athena.security.captcha.filter.CaptchaException;
 import com.gls.athena.security.captcha.repository.CaptchaRepository;
-import com.gls.athena.starter.web.enums.FileEnums;
 import com.gls.athena.starter.web.util.WebUtil;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -70,7 +70,7 @@ public class ImageCaptchaProvider extends BaseCaptchaProvider<ImageCaptcha> {
      */
     @Override
     protected void doSendCaptcha(String key, ImageCaptcha captcha, HttpServletResponse response) {
-        try (OutputStream out = WebUtil.createOutputStream(response, key, FileEnums.PNG)) {
+        try (OutputStream out = WebUtil.createOutputStream(response, key, FileTypeEnums.PNG)) {
             // 将验证码图片以PNG格式写入输出流
             ImageIO.write(captcha.getImage(), "PNG", out);
         } catch (Exception e) {
