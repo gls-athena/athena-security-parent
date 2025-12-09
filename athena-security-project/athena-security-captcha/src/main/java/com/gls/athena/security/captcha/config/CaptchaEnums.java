@@ -5,7 +5,7 @@
  */
 package com.gls.athena.security.captcha.config;
 
-import com.gls.athena.common.core.interfaces.IEnum;
+import com.gls.athena.common.core.interfaces.Enums;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -18,7 +18,7 @@ import lombok.RequiredArgsConstructor;
  */
 @Getter
 @RequiredArgsConstructor
-public enum CaptchaEnums implements IEnum<String> {
+public enum CaptchaEnums implements Enums<String> {
 
     /**
      * 无验证码类型
@@ -62,7 +62,7 @@ public enum CaptchaEnums implements IEnum<String> {
      */
     public static CaptchaEnums getByCode(String code) {
         // 使用IEnum工具类根据代码获取对应的枚举实例
-        return IEnum.of(CaptchaEnums.class, code);
+        return Enums.of(CaptchaEnums.class, code);
     }
 
     /**
@@ -72,6 +72,6 @@ public enum CaptchaEnums implements IEnum<String> {
      * @return 对应名称的验证码枚举类型，如果不存在则返回null
      */
     public static CaptchaEnums getByName(String name) {
-        return IEnum.fromName(CaptchaEnums.class, name);
+        return Enums.fromName(CaptchaEnums.class, name);
     }
 }

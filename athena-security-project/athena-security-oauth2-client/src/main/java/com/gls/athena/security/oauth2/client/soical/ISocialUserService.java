@@ -1,6 +1,6 @@
 package com.gls.athena.security.oauth2.client.soical;
 
-import com.gls.athena.common.core.security.SocialUser;
+import com.gls.athena.security.common.domain.SocialUser;
 
 /**
  * 社交用户服务接口

@@ -5,7 +5,7 @@ import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.json.JSONUtil;
 import com.gls.athena.common.core.domain.Result;
-import com.gls.athena.common.core.enums.ResultStatus;
+import com.gls.athena.common.core.enums.ResultEnums;
 import com.gls.athena.security.captcha.domain.Captcha;
 import com.gls.athena.security.captcha.filter.CaptchaException;
 import jakarta.servlet.http.HttpServletResponse;
@@ -126,7 +126,7 @@ public class CaptchaUtil {
         response.setContentType("application/json; charset=UTF-8");
         try {
             // 创建一个成功的结果对象，并写入响应体中
-            Result<String> result = ResultStatus.SUCCESS.toResult("验证码发送成功");
+            Result<String> result = ResultEnums.SUCCESS.toResult("验证码发送成功");
             response.getWriter().write(JSONUtil.toJsonStr(result));
         } catch (Exception e) {
             // 记录在写入成功响应时发生的错误
@@ -149,7 +149,7 @@ public class CaptchaUtil {
         response.setContentType("application/json; charset=UTF-8");
         try {
             // 创建一个错误的结果对象，并写入响应体中
-            Result<String> result = ResultStatus.PARAM_ERROR.toResult(message);
+            Result<String> result = ResultEnums.PARAM_ERROR.toResult(message);
             response.getWriter().write(JSONUtil.toJsonStr(result));
         } catch (Exception e) {
             // 记录在写入错误响应时发生的错误

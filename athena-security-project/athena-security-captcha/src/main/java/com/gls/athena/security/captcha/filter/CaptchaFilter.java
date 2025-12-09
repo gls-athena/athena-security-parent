@@ -2,7 +2,7 @@ package com.gls.athena.security.captcha.filter;
 
 import cn.hutool.json.JSONUtil;
 import com.gls.athena.common.core.domain.Result;
-import com.gls.athena.common.core.enums.ResultStatus;
+import com.gls.athena.common.core.enums.ResultEnums;
 import com.gls.athena.security.captcha.provider.CaptchaProvider;
 import com.gls.athena.security.captcha.provider.CaptchaProviderManager;
 import jakarta.servlet.FilterChain;
@@ -104,7 +104,7 @@ public class CaptchaFilter extends OncePerRequestFilter implements OrderedFilter
         // 设置响应内容类型为JSON
         response.setContentType("application/json; charset=UTF-8");
         // 构建并写入JSON格式的错误响应
-        Result<String> result = ResultStatus.FAIL.toResult(e.getMessage());
+        Result<String> result = ResultEnums.FAIL.toResult(e.getMessage());
         response.getWriter().write(JSONUtil.toJsonStr(result));
     }
 

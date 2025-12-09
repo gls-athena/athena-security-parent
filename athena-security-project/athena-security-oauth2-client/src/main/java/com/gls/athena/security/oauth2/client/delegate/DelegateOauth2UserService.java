@@ -1,6 +1,6 @@
 package com.gls.athena.security.oauth2.client.delegate;
 
-import com.gls.athena.common.core.security.SocialUser;
+import com.gls.athena.security.common.domain.SocialUser;
 import com.gls.athena.security.oauth2.client.config.Oauth2ClientConstants;
 import com.gls.athena.security.oauth2.client.config.Oauth2ClientProperties;
 import com.gls.athena.security.oauth2.client.provider.SocialLoginProviderManager;

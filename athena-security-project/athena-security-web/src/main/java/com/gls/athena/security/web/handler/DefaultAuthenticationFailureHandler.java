@@ -3,7 +3,7 @@ package com.gls.athena.security.web.handler;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import com.gls.athena.common.core.domain.Result;
-import com.gls.athena.common.core.enums.ResultStatus;
+import com.gls.athena.common.core.enums.ResultEnums;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -48,7 +48,7 @@ public class DefaultAuthenticationFailureHandler implements AuthenticationFailur
         }
         // 输出异常信息
         log.error(message, exception);
-        Result<String> result = ResultStatus.PARAM_ERROR.toResult(message);
+        Result<String> result = ResultEnums.PARAM_ERROR.toResult(message);
         response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         response.setContentType("application/json;charset=UTF-8");
         response.getWriter().write(JSONUtil.toJsonStr(result));

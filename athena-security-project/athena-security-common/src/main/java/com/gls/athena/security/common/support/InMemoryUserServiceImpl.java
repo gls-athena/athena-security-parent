@@ -1,8 +1,9 @@
 package com.gls.athena.security.common.support;
 
 import cn.hutool.core.collection.CollUtil;
-import com.gls.athena.common.core.security.LoginUserHelper;
-import com.gls.athena.common.core.security.User;
+import cn.hutool.extra.spring.SpringUtil;
+import com.gls.athena.common.core.interfaces.CurrentUserTemplate;
+import com.gls.athena.security.common.domain.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -105,12 +106,10 @@ public class InMemoryUserServiceImpl implements IUserService {
      */
     @Override
     public void changePassword(String oldPassword, String newPassword) {
-        User user = (User) LoginUserHelper.getCurrentUser().orElseThrow(() -> new IllegalArgumentException("用户未登录"));
-        if (!user.getPassword().equals(oldPassword)) {
-            throw new IllegalArgumentException("原密码错误");
-        }
+        Long userId = SpringUtil.getBean(CurrentUserTemplate.class).getId();
+
         USERS.stream()
-                .filter(u -> u.getUsername().equals(user.getUsername()))
+                .filter(u -> u.getId().equals(userId) && u.getPassword().equals(oldPassword))
                 .findFirst()
                 .ifPresent(u -> u.setPassword(newPassword));
     }
