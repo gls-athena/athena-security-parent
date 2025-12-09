@@ -1,7 +1,7 @@
 package com.gls.athena.security.oauth2.authorization.server.customizer;
 
 import cn.hutool.core.bean.BeanUtil;
-import com.gls.athena.common.bean.security.SocialUser;
+import com.gls.athena.common.core.security.SocialUser;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.oidc.OidcUserInfo;

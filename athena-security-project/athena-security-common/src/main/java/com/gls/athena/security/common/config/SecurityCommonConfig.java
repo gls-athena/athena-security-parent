@@ -1,8 +1,8 @@
 package com.gls.athena.security.common.config;
 
 import cn.hutool.core.collection.CollUtil;
-import com.gls.athena.common.bean.security.Role;
-import com.gls.athena.common.bean.security.User;
+import com.gls.athena.common.core.security.Role;
+import com.gls.athena.common.core.security.User;
 import com.gls.athena.security.common.support.IUserService;
 import com.gls.athena.security.common.support.InMemoryUserServiceImpl;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

@@ -1,6 +1,6 @@
 package com.gls.athena.security.oauth2.client.soical;
 
-import com.gls.athena.common.bean.security.SocialUser;
+import com.gls.athena.common.core.security.SocialUser;
 
 import java.util.ArrayList;
 import java.util.List;

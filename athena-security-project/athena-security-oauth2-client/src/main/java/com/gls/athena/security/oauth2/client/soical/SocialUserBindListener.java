@@ -1,7 +1,7 @@
 package com.gls.athena.security.oauth2.client.soical;
 
-import com.gls.athena.common.bean.security.SocialUser;
-import com.gls.athena.common.bean.security.User;
+import com.gls.athena.common.core.security.SocialUser;
+import com.gls.athena.common.core.security.User;
 import com.gls.athena.security.oauth2.client.config.Oauth2ClientConstants;
 import com.gls.athena.starter.web.util.WebUtil;
 import jakarta.annotation.Resource;

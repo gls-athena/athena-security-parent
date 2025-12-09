@@ -1,8 +1,8 @@
 package com.gls.athena.security.common.support;
 
 import cn.hutool.core.collection.CollUtil;
-import com.gls.athena.common.bean.security.LoginUserHelper;
-import com.gls.athena.common.bean.security.User;
+import com.gls.athena.common.core.security.LoginUserHelper;
+import com.gls.athena.common.core.security.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
