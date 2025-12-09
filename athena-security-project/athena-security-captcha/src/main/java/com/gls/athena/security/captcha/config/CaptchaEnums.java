@@ -5,7 +5,7 @@
  */
 package com.gls.athena.security.captcha.config;
 
-import com.gls.athena.common.core.base.IEnum;
+import com.gls.athena.common.core.interfaces.IEnum;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

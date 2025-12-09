@@ -3,7 +3,7 @@ package com.gls.athena.security.captcha.provider.impl;
 import cn.hutool.captcha.CaptchaUtil;
 import cn.hutool.captcha.LineCaptcha;
 import cn.hutool.core.date.DateUtil;
-import com.gls.athena.common.core.constant.FileTypeEnums;
+import com.gls.athena.common.core.enums.FileTypeEnums;
 import com.gls.athena.security.captcha.config.CaptchaEnums;
 import com.gls.athena.security.captcha.config.CaptchaProperties;
 import com.gls.athena.security.captcha.config.ImageCaptchaProperties;

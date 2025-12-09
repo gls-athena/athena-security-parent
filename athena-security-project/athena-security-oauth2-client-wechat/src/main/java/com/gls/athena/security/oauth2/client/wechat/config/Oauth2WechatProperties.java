@@ -1,6 +1,6 @@
 package com.gls.athena.security.oauth2.client.wechat.config;
 
-import com.gls.athena.common.core.constant.BaseProperties;
+import com.gls.athena.common.core.base.BaseProperties;
 import com.gls.athena.common.core.constant.IConstants;
 import com.gls.athena.security.oauth2.client.wechat.mini.WechatMiniProperties;
 import com.gls.athena.security.oauth2.client.wechat.mp.WechatMpProperties;

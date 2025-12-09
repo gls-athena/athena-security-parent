@@ -1,6 +1,6 @@
 package com.gls.athena.security.oauth2.authorization.server.config;
 
-import com.gls.athena.common.core.constant.BaseProperties;
+import com.gls.athena.common.core.base.BaseProperties;
 import com.gls.athena.common.core.constant.IConstants;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

@@ -1,8 +1,8 @@
 package com.gls.athena.security.captcha.filter;
 
 import cn.hutool.json.JSONUtil;
-import com.gls.athena.common.core.result.Result;
-import com.gls.athena.common.core.result.ResultStatus;
+import com.gls.athena.common.core.domain.Result;
+import com.gls.athena.common.core.enums.ResultStatus;
 import com.gls.athena.security.captcha.provider.CaptchaProvider;
 import com.gls.athena.security.captcha.provider.CaptchaProviderManager;
 import jakarta.servlet.FilterChain;

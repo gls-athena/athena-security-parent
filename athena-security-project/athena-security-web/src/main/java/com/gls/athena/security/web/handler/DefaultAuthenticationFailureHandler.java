@@ -2,8 +2,8 @@ package com.gls.athena.security.web.handler;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
-import com.gls.athena.common.core.result.Result;
-import com.gls.athena.common.core.result.ResultStatus;
+import com.gls.athena.common.core.domain.Result;
+import com.gls.athena.common.core.enums.ResultStatus;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
