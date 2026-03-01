@@ -176,8 +176,8 @@ public abstract class BaseCaptchaProvider<C extends Captcha> implements CaptchaP
 
         // 从验证码仓库中获取对应的验证码对象
         Captcha captcha = repository.getCaptcha(key);
-        // 如果验证码对象为空，说明验证码不存在或已过期，抛出异常
-        if (CaptchaUtil.validateCaptcha(captcha, captchaCode)) {
+        // validateCaptcha 返回 true 表示验证码正确；返回 false（含 null/过期/不匹配）则抛出异常
+        if (!CaptchaUtil.validateCaptcha(captcha, captchaCode)) {
             throw new CaptchaException("验证码错误");
         }
 

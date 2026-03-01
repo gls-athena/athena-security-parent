@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
@@ -24,10 +25,11 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class InMemoryUserServiceImpl implements IUserService {
 
     /**
-     * 存储所有用户的静态列表。
+     * 存储所有用户的实例列表。
      * 使用 CopyOnWriteArrayList 保证多线程并发读写安全（适合读多写少场景）。
+     * 注意：使用实例变量而非静态变量，避免多实例场景下用户数据交叉污染。
      */
-    private static final List<User> USERS = new CopyOnWriteArrayList<>();
+    private final List<User> USERS = new CopyOnWriteArrayList<>();
 
     /**
      * 构造方法，初始化用户列表
@@ -145,9 +147,11 @@ public class InMemoryUserServiceImpl implements IUserService {
      */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // 支持使用用户名、手机号或邮箱登录
+        // 支持使用用户名、手机号或邮箱登录；使用 Objects.equals 避免字段为 null 时 NPE
         return USERS.stream()
-                .filter(user -> user.getUsername().equals(username) || user.getMobile().equals(username) || user.getEmail().equals(username))
+                .filter(user -> user.getUsername().equals(username)
+                        || Objects.equals(user.getMobile(), username)
+                        || Objects.equals(user.getEmail(), username))
                 .findFirst()
                 .orElseThrow(() -> new UsernameNotFoundException("用户不存在"));
     }

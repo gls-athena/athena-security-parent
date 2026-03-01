@@ -4,6 +4,9 @@ import cn.hutool.core.bean.BeanUtil;
 import com.gls.athena.security.common.domain.SocialUser;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
+import org.springframework.security.oauth2.core.OAuth2Error;
+import org.springframework.security.oauth2.core.OAuth2ErrorCodes;
 import org.springframework.security.oauth2.core.oidc.OidcUserInfo;
 import org.springframework.security.oauth2.server.authorization.OAuth2Authorization;
 import org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.OidcUserInfoEndpointConfigurer;
@@ -44,7 +47,11 @@ public class OidcUserInfoEndpointCustomizer implements Customizer<OidcUserInfoEn
         OAuth2Authorization oauth2Authorization = context.getAuthorization();
         // 从授权信息中获取认证对象
         Authentication authentication = oauth2Authorization.getAttribute(Principal.class.getName());
-        assert authentication != null;
+        // assert 在生产环境 JVM 默认不启用，改为显式检查以确保可靠保护
+        if (authentication == null) {
+            throw new OAuth2AuthenticationException(
+                    new OAuth2Error(OAuth2ErrorCodes.SERVER_ERROR, "Missing principal in authorization.", null));
+        }
         // 获取认证主体对象
         Object principal = authentication.getPrincipal();
         // 根据主体类型转换为OIDC用户信息
