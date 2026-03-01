@@ -4,8 +4,9 @@ import com.gls.athena.security.oauth2.client.customizer.Oauth2LoginCustomizer;
 import com.gls.athena.security.rest.configurer.RestLoginConfigurer;
 import com.gls.athena.security.web.customizer.AuthorizeHttpRequestsCustomizer;
 import com.gls.athena.security.web.customizer.CsrfCustomizer;
+import com.gls.athena.security.web.customizer.ExceptionHandlingCustomizer;
 import com.gls.athena.security.web.customizer.RestLoginCustomizer;
-import jakarta.annotation.Resource;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,15 +21,14 @@ import org.springframework.security.web.SecurityFilterChain;
  * @author george
  */
 @Configuration
+@RequiredArgsConstructor
 public class SecurityWebConfig {
-    @Resource
-    private AuthorizeHttpRequestsCustomizer authorizeHttpRequestsCustomizer;
-    @Resource
-    private CsrfCustomizer csrfCustomizer;
-    @Resource
-    private RestLoginCustomizer restLoginCustomizer;
-    @Resource
-    private Oauth2LoginCustomizer oauth2LoginCustomizer;
+
+    private final AuthorizeHttpRequestsCustomizer authorizeHttpRequestsCustomizer;
+    private final CsrfCustomizer csrfCustomizer;
+    private final RestLoginCustomizer restLoginCustomizer;
+    private final Oauth2LoginCustomizer oauth2LoginCustomizer;
+    private final ExceptionHandlingCustomizer exceptionHandlingCustomizer;
 
     /**
      * 配置安全过滤器链
@@ -49,8 +49,11 @@ public class SecurityWebConfig {
         http.with(RestLoginConfigurer.restLogin(), restLoginCustomizer);
         // 配置OAuth2登录
         http.oauth2Login(oauth2LoginCustomizer);
+        // 配置异常处理：HTML请求重定向到登录页，API请求返回默认401
+        http.exceptionHandling(exceptionHandlingCustomizer);
         // 构建安全过滤器链
         return http.build();
     }
 
 }
+

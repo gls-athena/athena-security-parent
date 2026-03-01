@@ -1,4 +1,4 @@
-package com.gls.athena.security.oauth2.client.soical;
+package com.gls.athena.security.oauth2.client.social;
 
 import com.gls.athena.security.common.domain.SocialUser;
 import com.gls.athena.security.common.domain.User;

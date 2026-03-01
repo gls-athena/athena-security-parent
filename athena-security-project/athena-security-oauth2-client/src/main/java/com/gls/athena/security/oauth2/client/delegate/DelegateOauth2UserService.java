@@ -4,7 +4,7 @@ import com.gls.athena.security.common.domain.SocialUser;
 import com.gls.athena.security.oauth2.client.config.Oauth2ClientConstants;
 import com.gls.athena.security.oauth2.client.config.Oauth2ClientProperties;
 import com.gls.athena.security.oauth2.client.provider.SocialLoginProviderManager;
-import com.gls.athena.security.oauth2.client.soical.ISocialUserService;
+import com.gls.athena.security.oauth2.client.social.ISocialUserService;
 import com.gls.athena.starter.web.util.WebUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

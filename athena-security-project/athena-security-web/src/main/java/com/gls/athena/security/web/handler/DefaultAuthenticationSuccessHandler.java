@@ -1,5 +1,7 @@
 package com.gls.athena.security.web.handler;
 
+import cn.hutool.json.JSONUtil;
+import com.gls.athena.common.core.domain.Result;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -12,7 +14,7 @@ import java.io.IOException;
 
 /**
  * 默认验证成功处理器
- * 处理用户认证成功后的逻辑操作
+ * 处理用户认证成功后的逻辑操作，返回统一的 JSON 格式响应，与 {@link DefaultAuthenticationFailureHandler} 保持一致。
  *
  * @author george
  */
@@ -22,7 +24,8 @@ public class DefaultAuthenticationSuccessHandler implements AuthenticationSucces
 
     /**
      * 在验证完成后调用。
-     * 认证成功后返回成功的响应信息
+     * 认证成功后返回 HTTP 200 及统一 JSON 格式的成功响应体 {@code Result<String>}，
+     * 与 {@link DefaultAuthenticationFailureHandler} 的响应结构保持一致。
      *
      * @param request        HTTP请求对象
      * @param response       HTTP响应对象
@@ -32,14 +35,12 @@ public class DefaultAuthenticationSuccessHandler implements AuthenticationSucces
      */
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        // 记录登录成功日志
-        log.info("登录成功");
-        // 设置响应状态码为200
+        log.info("登录成功, 用户: {}", authentication.getName());
         response.setStatus(HttpServletResponse.SC_OK);
-        // 设置响应内容类型为JSON格式
         response.setContentType("application/json;charset=UTF-8");
-        // 向客户端返回登录成功信息
-        response.getWriter().write("登录成功");
+        Result<String> result = Result.success("登录成功");
+        response.getWriter().write(JSONUtil.toJsonStr(result));
     }
 }
+
 

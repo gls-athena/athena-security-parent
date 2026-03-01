@@ -2,8 +2,8 @@ package com.gls.athena.security.oauth2.client.config;
 
 import com.gls.athena.security.oauth2.client.provider.SocialLoginProviderManager;
 import com.gls.athena.security.oauth2.client.registration.SocialRegistrationMapper;
-import com.gls.athena.security.oauth2.client.soical.ISocialUserService;
-import com.gls.athena.security.oauth2.client.soical.InMemorySocialUserServiceImpl;
+import com.gls.athena.security.oauth2.client.social.ISocialUserService;
+import com.gls.athena.security.oauth2.client.social.InMemorySocialUserServiceImpl;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2ClientProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

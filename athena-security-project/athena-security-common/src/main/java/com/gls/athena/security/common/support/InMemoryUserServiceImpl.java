@@ -8,12 +8,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * 内存用户服务实现类，用于在内存中管理用户信息。
  * 提供了用户创建、更新、删除、密码修改以及根据用户名加载用户等功能。
+ * <p>
+ * 注意：本实现仅用于开发和测试场景，生产环境请实现 {@link IUserService} 接口并对接持久化存储。
+ * </p>
  *
  * @author george
  */
@@ -21,9 +24,10 @@ import java.util.List;
 public class InMemoryUserServiceImpl implements IUserService {
 
     /**
-     * 存储所有用户的静态列表
+     * 存储所有用户的静态列表。
+     * 使用 CopyOnWriteArrayList 保证多线程并发读写安全（适合读多写少场景）。
      */
-    private static final List<User> USERS = new ArrayList<>();
+    private static final List<User> USERS = new CopyOnWriteArrayList<>();
 
     /**
      * 构造方法，初始化用户列表
@@ -57,30 +61,37 @@ public class InMemoryUserServiceImpl implements IUserService {
     /**
      * 创建新用户
      *
-     * @param user 用户详情对象
-     * @throws IllegalArgumentException 如果用户名已存在则抛出异常
+     * @param user 用户详情对象，必须是 {@link User} 的实例
+     * @throws IllegalArgumentException 如果用户名已存在，或传入对象不是 {@link User} 类型
      */
     @Override
     public void createUser(UserDetails user) {
         if (userExists(user.getUsername())) {
             throw new IllegalArgumentException("用户已存在");
         }
-        USERS.add((User) user);
+        if (!(user instanceof User u)) {
+            throw new IllegalArgumentException("用户类型不支持，需要 User 实例，实际类型: " + user.getClass().getName());
+        }
+        USERS.add(u);
     }
 
     /**
      * 更新已有用户的信息
      *
-     * @param user 包含更新信息的用户详情对象
+     * @param user 包含更新信息的用户详情对象，必须是 {@link User} 的实例
+     * @throws IllegalArgumentException 如果传入对象不是 {@link User} 类型
      */
     @Override
     public void updateUser(UserDetails user) {
+        if (!(user instanceof User u)) {
+            throw new IllegalArgumentException("用户类型不支持，需要 User 实例，实际类型: " + user.getClass().getName());
+        }
         USERS.stream()
-                .filter(u -> u.getUsername().equals(user.getUsername()))
+                .filter(existing -> existing.getUsername().equals(user.getUsername()))
                 .findFirst()
-                .ifPresent(u -> {
-                    USERS.remove(u);
-                    USERS.add((User) user);
+                .ifPresent(existing -> {
+                    USERS.remove(existing);
+                    USERS.add(u);
                 });
     }
 
